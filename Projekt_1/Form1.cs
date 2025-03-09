@@ -5,6 +5,7 @@ namespace Projekt_1
         public Form1()
         {
             InitializeComponent();
+            this.Text = "Kalkulator";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -81,11 +82,7 @@ namespace Projekt_1
         {
             Dopisz_numer("3");
         }
-        // wynik
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         //przycisk 8
         private void button4_Click(object sender, EventArgs e)
         {
@@ -94,7 +91,14 @@ namespace Projekt_1
         //przycisk backspace
         private void button17_Click(object sender, EventArgs e)
         {
-
+            if (textBox2 != null)
+            {
+                textBox2.Text = textBox2.Text.Substring(0, textBox2.Text.Length - 1);
+                if (textBox2 != null)
+                {
+                    textBox2.Text = "0";
+                }
+            }
         }
         //przycisk 1
         private void button8_Click(object sender, EventArgs e)
@@ -149,7 +153,11 @@ namespace Projekt_1
         //przycisk ,
         private void button11_Click(object sender, EventArgs e)
         {
-            Wykonaj_operacje(",");
+            if(!textBox2.Text.Contains(","))
+            {
+                textBox2.Text += ",";
+                czy_nowy_numer = false;
+            }
         }
         //przycisk +
         private void button13_Click(object sender, EventArgs e)
